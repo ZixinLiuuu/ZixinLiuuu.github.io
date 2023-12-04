@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>COSC-5580 Group 5</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./introduction.html">
+      <span class="menu-text">Introduction</span></a>
+    </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="./data.html" aria-current="page">
+ <span class="menu-text">Data</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./analyses.html">
+ <span class="menu-text">Analyses</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./findings_discussion.html">
+ <span class="menu-text">Findings & Discussion</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./limitations.html">
+ <span class="menu-text">Limitations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ethical_considerations.html">
+ <span class="menu-text">Ethical Considerations</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./conclusion.html">
+ <span class="menu-text">Conclusions & Future Directions</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="./references.html">
+ <span class="menu-text">References</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+<!-- margin-sidebar -->
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+<h2 id="toc-title">Contents</h2>
+
+<ul>
+<li><a href="#dataset_1" id="dataset-1" class="nav-link" data-scroll-target="#data-information-and-introduction">Dataset 1</a></li>
+<li><a href="#dataset_2" id="dataset-2" class="nav-link" data-scroll-target="#data-information-and-introduction">Dataset 2</a></li>
+<li><a href="#dataset_3" id="dataset-3" class="nav-link" data-scroll-target="#data-cleaning">Dataset 3</a></li>
+</ul>
+</nav>
+</div>
+
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="Exploratory Data Analysis" class="level1">
+<h1>Exploratory Data Analysis</h1>
+
+<section id="dataset_1" class="level2">
+  <h2 class="anchored" data-anchor-id="dataset-1">Dataset 1</h2>
+          <p>
+            We downloaded our dataset 1 from the UC Irvine Machine Learning Repository. We will use this dataset to generate a social network which is a page-page graph of verified Facebook sites. Hence, there will be lots of nodes in this social network, and these nodes represent official Facebook pages while the links are mutual “likes” between sites. Node features are extracted from the descriptions of the site that the page owners created to summarize the purpose of the site. This graph was collected through the Facebook Graph API in November 2017 and restricted to pages from 4 categories which are defined by Facebook. These categories are: politicians, governmental organizations, television shows and companies. Additionally, this dataset comprises five attributes: 'id,' 'Facebook id,' 'page name,' 'page type,' and 'edge.' Four of these attributes—'id,' 'Facebook id,' 'page type,' and 'edge'—have no data issues. The primary data concern arises from the 'page name' attribute. Although there are no missing values in this column, it contains values that encompass various language types, including English, Chinese, Japanese, and Thai. The following is a more detailed explanation of our data quality issues and preprocessing steps.
+          </p>
+          <p>
+            <strong>Handling "Bad Bytes": </strong>The initial dataset exhibits unreadable characters when using the "latin-1" encoding method. Further examination reveals that these unreadable characters are symbols from various languages, which are part of the text. We replace these unreadable characters with spaces, as they don't compromise text readability or usability.
+
+          </p>
+          <p>
+            <strong>Missing Values: </strong>Several rows contain missing values in the form of NaN entries or solely continuous spaces in specific columns. After addressing the "Bad Bytes" issue, we filter the DataFrame to remove rows with NaN values in the 'page_name' column. For detecting rows that consist solely of continuous spaces in the 'page_name' column, we employ the Python "re" library to match the rows that we need.
+
+          </p>
+          <p>
+            <strong>Organizing Data Context: </strong>The dataset displays inconsistencies in capitalization. Furthermore, the original data is disorganized. We posit that restructuring and categorizing the data into meaningful groups will not only aid in identifying patterns within similar data but also significantly improve the computational efficiency of subsequent data analysis. After handling missing values, we convert the text in the "page_name" column to uppercase for consistency. Finally, we sort the data based on two columns: "page_name" and "page_type" to enhance data organization.
+          </p>
+</section>
+
+<section id="dataset_2" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-2">Dataset 2</h2>
+				<p>
+					We use this dataset to analyze Amazon's economic performance before and after 2017. We will compare Amazon with its competitors in various market segments (e.g., online shopping, grocery, Prime video, including eBay, Walmart, Target, and Netflix) to provide a more comprehensive overview. Hence, we wrote Python code to scrape historical data of stock prices of Amazon, Walmart, Target, eBay, and Netflix from Yahoo Finance. Sometimes, when fetching data, there may be a chance where some normal data are null for no reason. To ensure that this issue does not occur, in the Python code, we have decided that if we encounter this situation, Python code will directly re-fetch the data from Yahoo again. This dataset contains 7 attributes, including:
+				</p>
+				<p>Hence, we wrote Python code to scrape historical data of stock prices of Amazon, Walmart, Target, eBay, and Netflix from Yahoo Finance. Sometimes, when fetching data, there may be a chance where some normal data are null for no reason. To ensure that this issue does not occur, in the Python code, we have decided that if we encounter this situation, Python code will directly re-fetch the data from Yahoo again.</p>
+
+    <p>This dataset contains 7 attributes, including:</p>
+
+    <ul>
+        <li><strong>Date:</strong> trading day</li>
+        <li><strong>Open:</strong> a stock’s initial price at the start of the trading day</li>
+        <li><strong>High:</strong> a stock’s highest trading price for the day</li>
+        <li><strong>Low:</strong> a stock’s lowest trading price for the day</li>
+        <li><strong>Close:</strong> the last price at which a security traded during the regular trading day</li>
+        <li><strong>Adj Close:</strong> the closing price after adjustments for all applicable splits and dividend distributions</li>
+        <li><strong>Volume:</strong> the number of a stock’s shares that are traded on a stock exchange in a day</li>
+    </ul>
+
+    <p>However, our data has some issues, and the following provides a more detailed explanation of our data quality issues and preprocessing steps.</p>
+
+    <ul>
+      <li><strong>AMZN:</strong>No data issues.</li>
+      <li><strong>EBAY:</strong>No data issues.</li>
+      <li><strong>NFLX:</strong>No data issues.</li>
+      <li><strong>TGT:</strong>No missing values. However, there is noise in the data. Some days with open price equals 0. Some days with volume equals 0. Some days with the open price, highest price, lowest price, and close price were the same throughout the entire day. We directly filtered out this noise since these data are too old for our analysis. After the preprocessing process, a total of 2558 rows were deleted (from 12753 to 10195).</li>
+      <li><strong>WMT:</strong>No missing values. However, there is noise in the data. Some days with volume equals 0. Some days with the open price, highest price, lowest price, and close price were the same throughout the entire day. We directly filtered out this noise since these data are too old for our analysis. After the preprocessing process, a total of 269 rows were deleted (from 12873 to 12604).</li>
+  </ul>
+    
+</section>
+<section id="dataset_3" class="level2">
+  <h2 class="anchored" data-anchor-id="dataset-3">Dataset 3</h2>
+          <h3>Data Collection and Preprocessing</h3>
+
+          <h3>Data Collecting</h3>
+          <p>News involving the keyword "Amazon" on google.com during a specific time period (2016-1-1 to 2019-12-31) [API]. We used a news API called GNews, deployed and ran it in the code space of GitHub, adjusted the parameters, set the keyword to "Amazon", and the time span was from ‘2016-1-1’ to ‘2019-12-31’. Finally, store the obtained data in a CSV file. It contains five attributes: title, news description, publication date, URL, and publisher. The time node of the API is in days, but the output data will contain a very detailed release time, accurate to the hour, minute, and second.</p>
+      
+          <h3>Data Quality Issues and Preprocessing</h3>
+      
+          <ul>
+              <li><strong>Duplicate Header Row:</strong> Due to the format of the news API when extracting data, the original data has multiple title rows, that is, there are multiple repeated "title, description, published date, url, publisher" rows. – Filtered out rows with the title as "title" but retained the header and this step deleted 274 rows.</li>
+              <li><strong>Duplicate Data Row:</strong> Due to the format of the news API when extracting data, there are many duplicate rows. – This step deleted 2166 rows. Duplicate rows are deleted, and only one piece of non-duplicate data is retained.</li>
+              <li><strong>Same Name:</strong> Because the Amazon company and the Amazon Rainforest have the same name, and since only the keyword "Amazon" was searched when extracting the data, it is not sure whether the collected data contains news data about the Amazon Rainforest, so some filtering needs to be done here. -- Distinguished between the Amazon company and the Amazon rainforest, and this step deleted 114 rows.</li>
+              <li><strong>Abnormal Row:</strong> Since only data from 2016 to 2019 was selected when obtaining the data set, the data may only come from 2016 to 2019. However, when checking the data set, it was found that years other than 2016-2019 appeared. data, so this data falls outside of our desired timeframe and will be excluded. -- Removed rows where the year was not between 2016-2019, and this step deleted 62 rows.</li>
+              <li><strong>Decomposed Date:</strong> This step added four attributes. This decomposition is useful for later plotting histograms over time.</li>
+              <li><strong>Text Cleaning:</strong> This step converts text into tokens. This makes it easier to draw the histogram later. Filter punctuation, single letters, and stop words. Clean the title column and store it in the title_tokens column. The description column is not cleaned here because most of the description data is the same as the title data, so only the title column is taken here for processing.</li>
+          </ul>
+      
+         
+  </section>
+</section>
+
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Content 2023 by [Project Team 5] <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://github.com/gu-dsan6000/fall-2023-reddit-project-team-14">View the source at GitHub</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>
